@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.header{
+    background-color: #000000;
+    color: aliceblue;
+}
+.container{
+    padding: 15px 45px 0 20px;
+}
+.header__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+}
+.logo{
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 24px;
+}
+.logo__h4::after{
+    content: 'hub';
+    color: #000000;
+    background-color: #ff7033;
+    margin-left: 3px;
+    padding: 2px;
+    border-radius: 10%;
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+}
+
+/* ========== Бургер-обёртка (общее) ========== */
+/*  Главное: .menu — это общий контейнер, hover на .menu должен срабатывать
+    и для .menu__title, и для .hover__bridge-menu, и для .burger__menuMenu */
+
+    
+.menu,
+.burger__wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* кнопка / иконка бургера */
+.menu__title{
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min-content;
+    background: transparent;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+/* линии бургера */
+.burger__menu-span{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    transition: all 0.3s ease;
+    margin: 0; /* убираем margin-bottom (оно создаёт зазор!) */
+}
+.span{
+    width: 49px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* ========== Мостик между кнопкой и меню ==========
+   Нужен, чтобы не было "провала" курсора между ними.
+   Делаем прозрачным, но с pointer-events (чтобы hover считался). */
+.hover__bridge-menu,
+.hover__bridge {
+    display: none;               /* показываем только при hover контейнера */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 10px;               /* достаточно маленький мостик */
+    width: 100%;
+    pointer-events: auto;
+    z-index: 5;
+    background: rgba(0,0,0,0);  /* прозрачный мостик */
+}
+
+/* ========== Само выпадающее меню ==========
+   display: none по умолчанию; при hover на контейнере — display:flex */
+
+
+.burger__menuMenu,
+.burger__menu-menu {
+    display: none;
+    position: absolute;
+    /* top: calc(100% + 4px); маленький отступ под мостиком */
+    left: 0;               /* выровнять по левому краю кнопки */
+    z-index: 10;
+    left: auto;
+    flex-direction: column;
+    gap: 8px;
+}
+.burger__menuMenu{
+    left: -260%;
+}
+
+/* Ширина пунктов меню и стиль кнопок */
+.burger__btn-menu,
+.burger__btn {
+    background-color: #ffffff;
+    color: #000000;
+    width: 220px;  /* уменьшил ширину для примера */
+    height: 44px;
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    line-height: 44px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+
+
+/* hover эффект для пунктов меню */
+.burger__btn-menu:hover,
+.burger__btn:hover {
+  background: #ff7033;
+  color: white;
+}
+
+/* ========== Важные правила hover ==========
+   Показываем мостик и меню, когда курсор внутри .menu (контейнера) */
+.menu:hover .hover__bridge-menu,
+.menu:hover .burger__menuMenu,
+.burger__wrapper:hover .hover__bridge,
+.burger__wrapper:hover .burger__menu-menu {
+    display: block;
+}
+
+
+.burger__wrapper{
+    border: none;
+}
+
+
+
+
+
+
+.container__first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 303px 0 250px;
+}
+
+.first__description{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 100px;
+    z-index: 100000000;
+}
+
+.first__clock{
+    height:550px;
+    width: 600px;
+    z-index: 1;
+    
+}
+
+.first__main-title{
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 100px;
+    color: #FF5800;
+}
+
+.first__title{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.first__main-title::after{
+    content: 'HUB';
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 100px;
+    margin-left: 22px;
+    color: #ffffff;
+
+}
+
+.first__main-subtitle{
+    font-family: Plain;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 25px;
+
+}
+
+.first__subtitle{
+    font-family: Plain;
+    font-weight: 200;
+    font-style: Regular;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+.first__btn{
+    width: 136px;
+    background-color: #ff7033;
+
+
+}
+
+.first__btn-text{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: Plain;
+    font-weight: 600;
+    font-style: Medium;
+    font-size: 20px;
+    text-align: center;
+
+}
